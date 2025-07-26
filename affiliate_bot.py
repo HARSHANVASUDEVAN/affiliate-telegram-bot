@@ -3,7 +3,7 @@ import telebot
 import time
 
 BOT_TOKEN = "8052570613:AAHfx4n3btoXbDaaUhseXUFUW37nbYWgh-4"
-CHANNEL_ID = "@CartGoofferdeals"
+CHANNEL_ID = "-1002112548033"
 
 AMAZON_TAG = "harshanvasu24-21"
 EARNKARO_ID = "3263020"
