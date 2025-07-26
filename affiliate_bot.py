@@ -34,7 +34,20 @@ def post_products():
     products = get_amazon_products() + get_earnkaro_products()
     for p in products:
         text = f"🔥 {p['title']}\n💰 Price: {p['price']}\n👉 Buy Here: {p['link']}"
-        bot.send_photo(CHANNEL_ID, p['image'], caption=text)
+       import requests
+
+for p in products:
+    text = f"🔥 {p['title']}\n💰 Price: {p['price']}\n👉 Buy Here: {p['link']}"
+    try:
+        response = requests.get(p['image'])
+        if response.status_code == 200:
+            bot.send_photo(CHANNEL_ID, response.content, caption=text)
+        else:
+            bot.send_message(CHANNEL_ID, text + "\n⚠️ Image not available")
+    except:
+        bot.send_message(CHANNEL_ID, text + "\n⚠️ Error loading image")
+    time.sleep(5)
+
         time.sleep(5)
 
 while True:
